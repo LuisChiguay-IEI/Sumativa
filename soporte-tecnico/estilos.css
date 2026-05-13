@@ -279,6 +279,14 @@ body {
     max-width: 800px;
     width: 100%;
     margin: 0 auto;
+    transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1), 
+                max-width 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1),
+                opacity 0.3s ease;
+}
+
+.container.desplazado {
+    transform: translateX(260px);    /* Se mueve a la derecha */
+    max-width: 450px;
 }
 
 .formulario-card {
@@ -629,44 +637,49 @@ body {
     .dragon-original pre { font-size: 0.45rem; }
     .dragon-superior { top: 5px; left: 5px; opacity: 0.4; }
     .dragon-superior pre { font-size: 0.35rem; }
+    
+    .container.desplazado {
+        transform: translateX(0) translateY(150px);
+        max-width: 100%;
+    }
 }
 
-/* ===== CARROUSEL FLOTANTE (IZQUIERDA) ===== */
+/* ===== CARROUSEL FLOTANTE (IZQUIERDA - MUCHO MÁS GRANDE) ===== */
 .carrusel-flotante {
     position: fixed;
     top: 50%;
-    left: -450px;
+    left: -750px;                /* Oculto fuera de pantalla a la izquierda */
     transform: translateY(-50%);
-    width: 85%;
-    max-width: 380px;
+    width: 90%;
+    max-width: 700px;            /* Mucho más ancho */
     background: rgba(0,0,0,0.95);
     backdrop-filter: blur(16px);
     border: 2px solid rgba(246,216,154,0.5);
     border-radius: 24px;
-    padding: 20px;
+    padding: 40px;               /* Más padding interior */
     z-index: 2000;
-    box-shadow: 0 0 50px rgba(0,0,0,0.8), 0 0 20px rgba(255,90,31,0.5);
-    transition: left 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    box-shadow: 0 0 80px rgba(0,0,0,0.9), 0 0 30px rgba(255,90,31,0.6);
+    transition: left 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     display: block;
 }
 
 .carrusel-flotante.abierto {
-    left: 20px;
+    left: 20px;                  /* Se muestra a la izquierda */
 }
 
 .carrusel-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     border-bottom: 1px solid rgba(246,216,154,0.3);
-    padding-bottom: 10px;
+    padding-bottom: 15px;
 }
 
 .carrusel-header h3 {
     font-family: 'Cinzel', serif;
     color: var(--dorado);
-    font-size: 1.4rem;
+    font-size: 2rem;             /* Título más grande */
     margin: 0;
 }
 
@@ -674,7 +687,7 @@ body {
     background: none;
     border: none;
     color: #ffb36b;
-    font-size: 24px;
+    font-size: 32px;             /* X más grande */
     cursor: pointer;
     transition: all 0.2s;
 }
@@ -699,49 +712,50 @@ body {
     min-width: 100%;
     flex: 0 0 100%;
     text-align: center;
-    padding: 10px;
+    padding: 20px;
 }
 
 .carrusel-item img {
     width: 100%;
-    max-height: 200px;
+    max-height: 400px;           /* Imagen mucho más alta */
     object-fit: contain;
     border-radius: 12px;
     background: #1a0a06;
-    padding: 10px;
+    padding: 20px;
 }
 
 .carrusel-item h4 {
     font-family: 'Cinzel', serif;
-    font-size: 1.3rem;
-    margin: 10px 0 5px;
+    font-size: 1.8rem;           /* Nombre del producto más grande */
+    margin: 20px 0 10px;
     color: #fff;
 }
 
 .carrusel-item p {
-    font-size: 0.8rem;
+    font-size: 1.1rem;           /* Descripción más grande */
     color: #ddd;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
 .carrusel-item .precio {
-    font-size: 1.2rem;
+    font-size: 1.8rem;           /* Precio más grande */
     font-weight: bold;
     color: var(--dorado);
-    margin: 8px 0;
+    margin: 15px 0;
 }
 
 .btn-seleccionar-producto {
     background: linear-gradient(145deg, #ff7a2f, #b63a1b);
     border: none;
-    padding: 8px 20px;
+    padding: 14px 30px;          /* Botón más grande */
     border-radius: 40px;
     color: white;
     font-family: 'Cinzel', serif;
     font-weight: bold;
+    font-size: 1.1rem;
     cursor: pointer;
     transition: all 0.2s;
-    margin-top: 10px;
+    margin-top: 20px;
     box-shadow: 0 4px 0 #7a2a00;
 }
 
@@ -757,27 +771,27 @@ body {
     background: rgba(0,0,0,0.7);
     border: 1px solid var(--dorado);
     color: white;
-    font-size: 28px;
-    width: 40px;
-    height: 40px;
+    font-size: 36px;             /* Flechas más grandes */
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     cursor: pointer;
     z-index: 10;
 }
 
-.carrusel-prev { left: 10px; }
-.carrusel-next { right: 10px; }
+.carrusel-prev { left: 15px; }
+.carrusel-next { right: 15px; }
 
 .carrusel-indicadores {
     display: flex;
-    gap: 10px;
+    gap: 14px;
     justify-content: center;
-    margin-top: 15px;
+    margin-top: 25px;
 }
 
 .carrusel-indicador {
-    width: 10px;
-    height: 10px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
     background: rgba(255,255,255,0.4);
     border: none;
@@ -786,19 +800,20 @@ body {
 
 .carrusel-indicador.activo {
     background: var(--dorado);
-    box-shadow: 0 0 8px var(--dorado);
+    box-shadow: 0 0 10px var(--dorado);
 }
 
 @media (max-width: 600px) {
     .carrusel-flotante {
         width: 95%;
         max-width: none;
-        padding: 15px;
+        padding: 25px;
+        left: -105%;             /* Oculto en móvil */
     }
     .carrusel-flotante.abierto {
         left: 10px;
     }
     .carrusel-item img {
-        max-height: 150px;
+        max-height: 250px;
     }
 }
